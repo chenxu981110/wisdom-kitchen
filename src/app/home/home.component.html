@@ -1,0 +1,26 @@
+<div class="row" style="height: auto;width: auto;">
+  <div class="col-md-3" style="position: relative;top: 460px;">
+    <ul class="list-group" >
+      <li class="list-group-item" [ngClass]="{active:menuIndex==2}" (click)="menuClicked(2)" >
+      <span class="badge badge-info" style="position: relative;right: 10px;">1</span>Humiture</li>
+ 
+   
+      <li class="list-group-item" [ngClass]="{active:menuIndex==7}" (click)="menuClicked(7)">
+        <span class="badge badge-info" style="position: relative;right: 10px;">2</span>Combustible gas concentration</li>
+      <li class="list-group-item" [ngClass]="{active:menuIndex==8}" (click)="menuClicked(8)">
+        <span class="badge badge-info" style="position: relative;right: 10px;">3</span>Smoke concentration</li>
+        <li class="list-group-item" [ngClass]="{active:menuIndex==1}" (click)="menuClicked(1)">
+          <span class="badge badge-info" style="position: relative;right: 10px;">4</span>Equipment management
+        </li>
+      <li class="list-group-item" [ngClass]="{active:menuIndex==3}" (click)="menuClicked(3)">
+        <span class="badge badge-info" style="position: relative;right: 10px;">5</span>Location</li>
+      
+     
+      <li class="list-group-item" [ngClass]="{active:menuIndex==6}" (click)="menuClicked(6)">
+        <span class="badge badge-danger" style="position: relative;right: 10px;">6</span>Logout</li>
+    </ul>
+  </div>
+  <div class="col-md-9">
+    <router-outlet></router-outlet>
+  </div>
+</div>

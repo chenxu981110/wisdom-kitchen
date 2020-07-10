@@ -1,0 +1,368 @@
+<!--<div echarts [options]="chartOption" [merge]="updateOption" class="charts"></div>-->
+<div class="container">
+
+
+    <div class="accordion" id="accordionExample" style="position: absolute;top: 100px;width: 930px;">
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                        data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <span class="badge badge-danger" style="position: relative;right: 10px;">highest</span>CO
+                    </button>
+                </h2>
+            </div>
+
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                    <!--表1-->
+                    <form [formGroup]="myForm">
+
+                        <!--获取设备-->
+                        <table class="table">
+                            <thead class="thead-dark"
+                                style="box-shadow:0px 10px 7px gainsboro;text-shadow: black 5px 3px 3px;">
+                                <tr>
+                                    <th>Id</th>
+                                    <th>time</th>
+                                    <th>CO</th>
+                                    <th>SO2</th>
+                                    <th>N2</th>
+                                    <th>NH4</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let record of records$ | async; let i = index">
+                                    <td>{{record.id}}</td>
+                                    <td>{{record.time}}</td>
+                                    <td style="color: red;">{{record.monoxide}}</td>
+                                    <td>{{record.SO2}}</td>
+                                    <td>{{record.N2}}</td>
+                                    <td>{{record.NH4}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingTwo">
+                <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <span class="badge badge-info" style="position: relative;right: 10px;">minimum</span>CO
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                <div class="card-body">
+                    <!--表2-->
+                    <form [formGroup]="myForm1">
+
+                        <!--获取设备-->
+                        <table class="table">
+                            <thead class="thead-dark"
+                                style="box-shadow:0px 10px 7px gainsboro;text-shadow: black 5px 3px 3px;">
+                                <tr>
+                            <th>Id</th>
+                            <th>time</th>
+                            <th>CO</th>
+                            <th>SO2</th>
+                            <th>N2</th>
+                            <th>NH4</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let record1 of records1$ | async; let i = index">
+                                    <td>{{record1.id}}</td>
+                                    <td>{{record1.time}}</td>
+                                    <td style="color:blue">{{record1.monoxide}}</td>
+                                    <td>{{record1.SO2}}</td>
+                                    <td>{{record1.N2}}</td>
+                                    <td>{{record1.NH4}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingThree">
+                <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        <span class="badge badge-danger" style="position: relative;right: 10px;">highest</span>SO2
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                <div class="card-body">
+                    <!--表3-->
+                    <form [formGroup]="myForm2">
+
+                        <!--获取设备-->
+                        <table class="table">
+                            <thead class="thead-dark"
+                                style="box-shadow:0px 10px 7px gainsboro;text-shadow: black 5px 3px 3px;">
+                                <tr>
+                                                <th>Id</th>
+                                                <th>time</th>
+                                                <th>CO</th>
+                                                <th>SO2</th>
+                                                <th>N2</th>
+                                                <th>NH4</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let record2 of records2$ | async; let i = index">
+                                    <td>{{record2.id}}</td>
+                                    <td>{{record2.time}}</td>
+                                    <td>{{record2.monoxide}}</td>
+                                    <td style="color:red">{{record2.SO2}}</td>
+                                    <td>{{record2.N2}}</td>
+                                    <td>{{record2.NH4}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingFour">
+                <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        <span class="badge badge-info" style="position: relative;right: 10px;">minimum</span>SO2
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                <div class="card-body">
+                    <!--表4-->
+                    <form [formGroup]="myForm3">
+
+                        <!--获取设备-->
+                        <table class="table">
+                            <thead class="thead-dark"
+                                style="box-shadow:0px 10px 7px gainsboro;text-shadow: black 5px 3px 3px;">
+                                <tr>
+                                                            <th>Id</th>
+                                                            <th>time</th>
+                                                            <th>CO</th>
+                                                            <th>SO2</th>
+                                                            <th>N2</th>
+                                                            <th>NH4</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let record3 of records3$ | async; let i = index">
+                                    <td>{{record3.id}}</td>
+                                    <td>{{record3.time}}</td>
+                                    <td>{{record3.monoxide}}</td>
+                                    <td style="color:blue">{{record3.SO2}}</td>
+                                     <td>{{record3.N2}}</td>
+                                    <td>{{record3.NH4}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingFive">
+                <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                        <span class="badge badge-danger" style="position: relative;right: 10px;">highest</span>N2
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+                <div class="card-body">
+                    <!--表3-->
+                    <form [formGroup]="myForm4">
+        
+                        <!--获取设备-->
+                        <table class="table">
+                            <thead class="thead-dark" style="box-shadow:0px 10px 7px gainsboro;text-shadow: black 5px 3px 3px;">
+                                <tr>
+                                    <th>Id</th>
+                                    <th>time</th>
+                                    <th>CO</th>
+                                    <th>SO2</th>
+                                    <th>N2</th>
+                                    <th>NH4</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let record4 of records4$ | async; let i = index">
+                                    <td>{{record4.id}}</td>
+                                    <td>{{record4.time}}</td>
+                                    <td>{{record4.monoxide}}</td>
+                                    <td>{{record4.SO2}}</td>
+                                    <td style="color:red">{{record4.N2}}</td>
+                                    <td>{{record4.NH4}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingSix">
+                <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                        <span class="badge badge-info" style="position: relative;right: 10px;">minimum</span>N2
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
+                <div class="card-body">
+                    <!--表4-->
+                    <form [formGroup]="myForm5">
+        
+                        <!--获取设备-->
+                        <table class="table">
+                            <thead class="thead-dark" style="box-shadow:0px 10px 7px gainsboro;text-shadow: black 5px 3px 3px;">
+                                <tr>
+                                    <th>Id</th>
+                                    <th>time</th>
+                                    <th>CO</th>
+                                    <th>SO2</th>
+                                    <th>N2</th>
+                                    <th>NH4</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let record5 of records5$ | async; let i = index">
+                                    <td>{{record5.id}}</td>
+                                    <td>{{record5.time}}</td>
+                                    <td>{{record5.monoxide}}</td>
+                                    <td >{{record5.SO2}}</td>
+                                    <td style="color:blue">{{record5.N2}}</td>
+                                    <td>{{record5.NH4}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingSeven">
+                <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                        <span class="badge badge-danger" style="position: relative;right: 10px;">highest</span>NH4
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionExample">
+                <div class="card-body">
+                    <!--表3-->
+                    <form [formGroup]="myForm6">
+        
+                        <!--获取设备-->
+                        <table class="table">
+                            <thead class="thead-dark" style="box-shadow:0px 10px 7px gainsboro;text-shadow: black 5px 3px 3px;">
+                                <tr>
+                                    <th>Id</th>
+                                    <th>time</th>
+                                    <th>CO</th>
+                                    <th>SO2</th>
+                                    <th>N2</th>
+                                    <th>NH4</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let record6 of records6$ | async; let i = index">
+                                    <td>{{record6.id}}</td>
+                                    <td>{{record6.time}}</td>
+                                    <td>{{record6.monoxide}}</td>
+                                    <td >{{record6.SO2}}</td>
+                                    <td>{{record6.N2}}</td>
+                                    <td style="color:red">{{record6.NH4}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingEight">
+                <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                        <span class="badge badge-info" style="position: relative;right: 10px;">minimum</span>NH4
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordionExample">
+                <div class="card-body">
+                    <!--表4-->
+                    <form [formGroup]="myForm7">
+        
+                        <!--获取设备-->
+                        <table class="table">
+                            <thead class="thead-dark" style="box-shadow:0px 10px 7px gainsboro;text-shadow: black 5px 3px 3px;">
+                                <tr>
+                                    <th>Id</th>
+                                    <th>time</th>
+                                    <th>CO</th>
+                                    <th>SO2</th>
+                                    <th>N2</th>
+                                    <th>NH4</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let record7 of records7$ | async; let i = index">
+                                    <td>{{record7.id}}</td>
+                                    <td>{{record7.time}}</td>
+                                    <td>{{record7.monoxide}}</td>
+                                    <td >{{record7.SO2}}</td>
+                                    <td>{{record7.N2}}</td>
+                                    <td style="color:blue">{{record7.NH4}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+<router-outlet></router-outlet>

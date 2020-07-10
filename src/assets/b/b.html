@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>智能厨房</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="./b.css">
+    <script src="./main.js"></script>
+    <script>
+       
+
+
+
+        function onUpdate() {
+            const idInput = document.getElementById('course_id');
+            const nameInput = document.getElementById('course_name');
+            courseList.update(idInput.value, nameInput.value);
+
+            refresh();
+        }
+
+
+
+       
+   
+
+        function refresh() {
+            
+        }
+
+        function onCourseClicked(index) {
+            const coursesUl = document.getElementById('courses');
+            let liItems = coursesUl.getElementsByTagName('li');
+            let i = 0;
+            for (let liItem of liItems) {
+                if (i === index) {
+                    liItem.setAttribute('class', 'list-group-item active');
+                    const idInput = document.getElementById('course_id');
+                    const nameInput = document.getElementById('course_name');
+                    idInput.value = courseList.getAll()[index].getId();
+                    nameInput.value = courseList.getAll()[index].getName();
+                } else {
+                    liItem.setAttribute('class', 'list-group-item');
+                }
+                i++;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">用户管理</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">修改密码 <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./a.html">删除用户</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./c.html">用户清单</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <form>
+            <h3>修改密码<span class="badge badge-danger" id="courseNoBadge"></span></h3>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="course_id">用户账号</label>
+                        <input type="text" class="form-control" id="course_id" placeholder="输入账号">
+                    </div>
+                </div>
+             
+                <div class="col">
+                    <div class="form-group">
+                        <label for="course_name">新密码</label>
+                        <input type="text" class="form-control" id="course_name" placeholder="输入新密码">
+                    </div>
+                </div>
+            </div>
+         
+            <button type="button" class="btn btn-danger" onclick="onUpdate()">修改</button>
+           
+        </form>
+
+        <ul id="updateuser" class="list-group">
+
+        </ul>
+    </div>
+
+</body>
+
+</html>

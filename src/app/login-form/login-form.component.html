@@ -1,0 +1,371 @@
+
+<div class="container">
+  <!--
+<div class="row" >
+<div class="col-md-4"></div>
+-->
+
+
+
+<!--登录-->
+  <button class="btn btn-light" type="button" data-toggle="collapse" data-target="#collapseExample1"
+    aria-expanded="false" aria-controls="collapseExample" style="position: absolute;top: 600px;left: 500px;width: 170px;height: 50px;">
+  Login
+  </button>
+
+<div class="collapse" id="collapseExample1">
+  <div class="card card-body">
+    <!--<div class="col-md-4" style=" position: absolute;right: 80px;top: 720px;width: 400px;">-->
+    
+    
+    
+    
+    
+<form [formGroup]="myForm"
+  style="background-color: white;border-style: solid;border-width: 1px;border-color: rgb(108, 192, 231);box-shadow:7px 5px 5px gainsboro;"
+  (ngSubmit)="onSubmit(myForm.value)">
+  <p style="position:relative;top: 10px;left: 900px;">{{auth.loggedIn?'already logged in':'Not logged in'}}</p>
+    
+    
+    
+    
+    <div class="form-group">
+      <div style="display: flex;flex-direction: row;">
+        <img src="../../assets/icons-1.0.0-alpha2/icons/person-fill.svg" alt="" width="32" height="32">
+        <input type="text" class="form-control" placeholder="user name" name="userName"[formControl]="myForm.controls['userName']">
+      </div>
+    </div>
+    
+    
+    
+    
+    <div class="form-group">
+      <div style="display: flex;flex-direction: row;">
+        <img src="../../assets/icons-1.0.0-alpha2/icons/lock-fill.svg" alt="" width="32" height="32">
+        <input type="password" class="form-control " id="exampleDropdownFormPassword1" placeholder="Password"name="password"
+          [formControl]="myForm.controls['password']">
+      </div>
+    </div>
+
+    
+    
+    
+    
+          <div class="form-check">
+            <label class="form-check-label" style="position: relative;left: 10px;">
+              <input class="form-check-input" type="checkbox"> Remember me
+            </label>
+          </div>
+        <button type="submit" class="btn btn-light"
+          style="box-shadow:0px 10px 7px gainsboro;position: relative;left: 10px;">submit</button>
+      
+    
+      </form>
+    
+    
+    </div>
+  </div>
+
+
+
+
+
+
+<!--注册-->
+<button class="btn btn-dark" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false"
+  aria-controls="collapseExample" style="position: absolute;top: 600px;left: 700px;width: 170px;height: 50px;">
+  register
+</button>
+
+<div class="collapse" id="collapseExample2">
+  <div class="card card-body">
+    <!--<div class="col-md-4" style=" position: absolute;right: 80px;top: 720px;width: 400px;">-->
+
+
+
+
+
+
+<form [formGroup]="myForm"  (ngSubmit)="onSubmit(myForm.value)">
+
+  <div class="form-row">
+    <!--用户名-->
+    <div class="form-group col-md-6">
+      <input type="text" class="form-control"  placeholder="Username" name="userName"[formControl]="myForm.controls['userName']">   
+    </div>
+
+
+    
+  
+    <!--密码-->
+    <div class="form-group col-md-6">
+      <input type="password" class="form-control" id="inputPassword4"placeholder="Password"name="password"[formControl]="myForm.controls['password']">
+    </div>
+  </div>
+
+
+  <div class="form-row">
+ <!--邮箱-->
+    <div class="form-group col-md-6">
+      <input type="text" class="form-control" id="inputCity"placeholder=" Enter your email"name="email"[formControl]="myForm.controls['email']">
+    </div>
+ <!--性别-->
+    <div class="form-group col-md-4">
+      <select id="inputState" class="form-control"name="gender"[formControl]="myForm.controls['gender']">
+        <option>男</option>
+        <option>女</option>
+      </select>
+    </div>
+ <!--所在城市-->
+    <div class="form-group col-md-2">
+      <input type="text" class="form-control" id="inputZip"placeholder="City"name="city"[formControl]="myForm.controls['city']">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="gridCheck">
+      <label class="form-check-label" for="gridCheck">
+        Remember me
+      </label>
+    </div>
+  </div>
+<button type="button" class="btn btn-dark" (click)="Add(myForm.value)"
+  style="box-shadow:0px 10px 7px gainsboro;position: relative;left: 10px;">register</button>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+    <form [formGroup]="myForm"
+      style="background-color: white;border-style: solid;border-width: 1px;border-color: rgb(108, 192, 231);box-shadow:7px 5px 5px gainsboro;"
+      (ngSubmit)="onSubmit(myForm.value)">
+      <p style="position:relative;top: 10px;left: 900px;">{{auth.loggedIn?'already logged in':'Not logged in'}}</p>
+
+
+
+
+
+用户名
+      <div class="form-group" [class.error]="!userName.valid && userName.touched">
+        <label for="userNameInput">用户名</label>
+        <p *ngIf="!userName.valid" class="alert alert-info">
+          <strong></strong>Please fill in the user name</p>
+          <div style="display: flex;flex-direction: row;">
+          <img src="../../assets/icons-1.0.0-alpha2/icons/person-fill.svg" alt="" width="32" height="32">
+          <input type="text" class="form-control" placeholder="user name" name="userName"
+          [ngClass]="{'is-invaild':userName.hasError('required')}" [formControl]="myForm.controls['userName']">
+          </div>
+      </div>
+-->
+
+
+<!--密码
+      <div class="form-group" [class.error]="!password.valid && password.dirty">
+        <label for="pwd">Password</label>
+        <p *ngIf="!password.valid" class="alert alert-info">
+          <strong></strong>Please enter your password</p>
+
+          <div style="display: flex;flex-direction: row;">
+          <img src="../../assets/icons-1.0.0-alpha2/icons/lock-fill.svg" alt="" width="32" height="32" >
+        <input type="password" class="form-control " id="exampleDropdownFormPassword1" placeholder="Password"
+          [ngClass]="{'is-invaild':password.hasError('required')}" name="password"
+          [formControl]="myForm.controls['password']">
+          </div>
+      </div>
+-->
+
+
+
+
+<!--邮箱
+<div class="form-group" [class.error]="!email.valid && email.dirty">
+<p *ngIf="!email.valid" class="alert alert-info"><strong></strong>Please enter your email</p>
+<div class="input-group mb-3" >
+  
+  <input type="text" class="form-control" placeholder=" Enter your email" aria-label="Recipient's username"
+    aria-describedby="basic-addon2" [ngClass]="{'is-invaild':email.hasError('required')}" name="email"
+      [formControl]="myForm.controls['email']">
+  <div class="input-group-append">
+    <span class="input-group-text" id="basic-addon2">Email address</span>
+  </div>
+</div>
+</div>
+-->
+
+
+<!--性别
+<div class="form-group"[class.error]="!gender.valid && gender.dirty">
+  <p *ngIf="!gender.valid" class="alert alert-info">
+    <strong></strong>Please enter your gender</p>
+  <select class="form-control" id="exampleFormControlSelect1"placeholder="gender"
+      [ngClass]="{'is-invaild':gender.hasError('required')}" name="gender"
+      [formControl]="myForm.controls['gender']">
+    <option>男</option>
+    <option>女</option>
+  </select>
+</div>
+-->
+
+
+<!--城市
+<div class="form-group" [class.error]="!city.valid && city.dirty">
+ <label for="pwd">Password</label>
+  <p *ngIf="!city.valid" class="alert alert-info">
+    <strong></strong>Please enter your city</p>
+
+  <div style="display: flex;flex-direction: row;">
+    <img src="../../assets/icons-1.0.0-alpha2/icons/lock-fill.svg" alt="" width="32" height="32">
+    <input type="password" class="form-control " id="exampleDropdownFormPassword1" placeholder="city"
+      [ngClass]="{'is-invaild':city.hasError('required')}" name="city"
+      [formControl]="myForm.controls['city']">
+  </div>
+</div>
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--注册按钮
+      <div class="form-check">
+        <label class="form-check-label" style="position: relative;left: 10px;">
+          <input class="form-check-input" type="checkbox"> Remember me
+        </label>
+      </div>
+      <button type="button" class="btn btn-dark" (click)="Add(myForm.value)" style="box-shadow:0px 10px 7px gainsboro;position: relative;left: 10px;">register</button>
+
+
+    </form>
+-->
+
+  </div>
+</div>
+
+
+
+
+
+
+
+   
+
+
+
+
+<!--ROOT登录-->
+<button class="btn btn-info" type="button" data-toggle="collapse" data-target="#collapseExample3" aria-expanded="false"
+  aria-controls="collapseExample" style="position: absolute;top: 250px;left: 340px;width: 80px;height: 80px;border-radius: 50px;font-size: 25px;z-index: -1;">
+  Root
+</button>
+
+<div class="collapse" id="collapseExample3">
+  <div class="card card-body">
+    <!--<div class="col-md-4" style=" position: absolute;right: 80px;top: 720px;width: 400px;">-->
+
+
+
+
+
+    <form [formGroup]="myForm1"
+      style="background-color: white;border-style: solid;border-width: 1px;border-color: rgb(108, 192, 231);box-shadow:7px 5px 5px gainsboro;"
+      (ngSubmit)="onSubmit1(myForm1.value)">
+      <p style="position:relative;top: 10px;left: 900px;">{{auth1.loggedIn1?'already logged in':'Not logged in'}}</p>
+
+
+
+
+      <div class="form-group" [class.error]="!userName.valid && userName.touched">
+        <!--<label for="userNameInput">用户名</label>-->
+        <p *ngIf="!userName.valid" class="alert alert-info">
+          <strong></strong>Please fill in the user name</p>
+        <div style="display: flex;flex-direction: row;">
+          <img src="../../assets/icons-1.0.0-alpha2/icons/person-fill.svg" alt="" width="32" height="32">
+          <input type="text" class="form-control" placeholder="user name" name="userName"
+            [ngClass]="{'is-invaild':userName.hasError('required')}" [formControl]="myForm1.controls['userName']">
+        </div>
+      </div>
+
+
+
+
+      <div class="form-group" [class.error]="!password.valid && password.dirty">
+        <!--  <label for="pwd">Password</label>-->
+        <p *ngIf="!password.valid" class="alert alert-info">
+          <strong></strong>Please enter your password</p>
+
+        <div style="display: flex;flex-direction: row;">
+          <img src="../../assets/icons-1.0.0-alpha2/icons/lock-fill.svg" alt="" width="32" height="32">
+          <input type="password" class="form-control " id="exampleDropdownFormPassword1" placeholder="Password"
+            [ngClass]="{'is-invaild':password.hasError('required')}" name="password"
+            [formControl]="myForm1.controls['password']">
+        </div>
+      </div>
+
+
+
+
+
+      <div class="form-check">
+        <label class="form-check-label" style="position: relative;left: 10px;">
+          <input class="form-check-input" type="checkbox"> Remember me
+        </label>
+      </div>
+      <button type="submit" class="btn btn-light"
+        style="box-shadow:0px 10px 7px gainsboro;position: relative;left: 10px;">submit</button>
+
+
+    </form>
+
+
+  </div>
+</div>
+
+<!--</div>
+
+
+
+  <div class="col-md-4">
+   
+  </div>
+  </div>
+-->
+
+
+  </div>

@@ -1,0 +1,120 @@
+<div class="container" style="display:felx;flex-direction: column;justify-content: center;position:relative;top: 200px;"> 
+    
+    <form [formGroup]="myForm" style="background-color: white;">
+
+
+
+<div class="form-row align-items-center">
+    <!--用户名-->
+   <div class="col-sm-3 my-1" >
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <div class="input-group-text">@</div>
+        </div>
+        <input type="text" class="form-control" placeholder="username" name="userName"
+            [formControl]="myForm.controls['userName']"style="box-shadow:0px 10px 7px gainsboro;">
+        
+    </div>
+  </div>
+    <!--密码-->
+    <div class="col-sm-3 my-1" >
+        <input type="text" class="form-control" placeholder="password" name="password"
+            [formControl]="myForm.controls['password']"style="box-shadow:0px 10px 7px gainsboro;">
+    </div>
+
+
+
+<div class="col-auto my-1">
+    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" style="box-shadow:0px 10px 7px gainsboro;">
+        <option>男</option>
+        <option>女</option>
+    </select>
+    </div>
+
+    <div class="col-auto my-1">
+ <button type="button" class="btn btn-warning" (click)="List(myForm.value)" style="box-shadow:0px 10px 7px gainsboro;">查询</button>
+    </div>
+    <div class="col-auto my-1">
+        <button type="button" class="btn btn-default" (click)="Update(myForm.value)"style="box-shadow:0px 10px 7px gainsboro;">重置</button>
+    </div>
+    </div>
+        <button type="button" class="btn btn-danger" (click)="Del(myForm.value)" style="position: relative;top: 20px;box-shadow:0px 10px 7px gainsboro;">删除</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!--获取设备-->
+       <table class="table" style="position: relative;top: 30px;">
+            <thead class="thead-dark" style="text-shadow: black 5px 3px 3px;">
+                <tr>
+                    <th>用户名</th>
+                    <th>密码</th>
+                    <th>邮箱</th>
+                    <th>性别</th>
+                    <th>所在城市</th>
+                    
+                   
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users$ | async; let i = index">
+                    <td>{{user.userName}}</td>
+                    <td>{{user.password}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.gender}}</td>
+                    <td>{{user.city}}</td>
+                   
+                </tr>
+            </tbody>
+        </table>
+<!--用户名
+        <div class="form-group" [class.error]="!userName.valid && userName.touched">
+            <label for="userNameInput">用户名</label>
+        <p *ngIf="!deviceId.valid" class="alert alert-info">
+        <strong></strong>请输入设备id</p>
+            <input type="text" class="form-control" placeholder="输入用户名" name="userName"
+                [ngClass]="{'is-invaild':userName.hasError('required')}" [formControl]="myForm.controls['userName']">
+        </div>
+-->
+
+<!--密码
+        <div class="form-group" [class.error]="!password.valid && password.dirty">
+            <label for="password">密码</label>
+            <p *ngIf="!deviceName.valid" class="alert alert-info">
+        <strong></strong>请输入设备名</p>
+            <input type="password" class="form-control " placeholder="输入密码"
+                [ngClass]="{'is-invaild':password.hasError('required')}" name="password"
+                [formControl]="myForm.controls['password']">
+        </div>
+-->
+
+      
+
+       
+
+    </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+<router-outlet></router-outlet>

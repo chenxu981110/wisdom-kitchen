@@ -1,0 +1,7 @@
+a{
+    text-emphasis: none;
+    color: black;
+}
+li.active a {
+    color: aliceblue;
+}
